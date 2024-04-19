@@ -1,0 +1,17 @@
+{
+    "name": "Naggo.TextTyping.UniTask",
+    "rootNamespace": "TextTyping",
+    "references": [
+        "Naggo.TextTyping",
+        "UniTask"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

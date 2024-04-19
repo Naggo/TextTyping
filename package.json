@@ -1,0 +1,11 @@
+{
+  "name": "jp.naggo.texttyping",
+  "version": "1.0.0",
+  "displayName": "Text Typing",
+  "description": "Add Text Typer Component.",
+  "unity": "2021.3",
+  "dependencies": {
+    "com.unity.textmeshpro": "3.0.0",
+    "jp.netsis.rubytmp": "1.2.0"
+  }
+}
