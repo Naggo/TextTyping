@@ -11,11 +11,9 @@ TextMeshProの文章を一文字ずつ表示するためのパッケージです
 
 # 依存関係
 
-## 必須
-* [RubyTextMeshPro](https://github.com/jp-netsis/RubyTextMeshPro) v1.2.0
-
 ## 任意
-* [UniTask](https://github.com/Cysharp/UniTask) v2.5.4
+* [RubyTextMeshPro](https://github.com/jp-netsis/RubyTextMeshPro)
+* [UniTask](https://github.com/Cysharp/UniTask)
 
 
 # 使用方法
