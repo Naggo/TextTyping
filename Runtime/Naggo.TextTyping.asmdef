@@ -3,7 +3,8 @@
     "rootNamespace": "TextTyping",
     "references": [
         "Unity.TextMeshPro",
-        "RubyTextMeshPro"
+        "RubyTextMeshPro",
+        "UniTask"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],
@@ -17,6 +18,11 @@
             "name": "jp.netsis.rubytmp",
             "expression": "",
             "define": "TEXTTYPING_RUBYTMP_SUPPORT"
+        },
+        {
+            "name": "com.cysharp.unitask",
+            "expression": "",
+            "define": "TEXTTYPING_UNITASK_SUPPORT"
         }
     ],
     "noEngineReferences": false
