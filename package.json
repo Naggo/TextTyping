@@ -6,6 +6,6 @@
   "unity": "2021.3",
   "dependencies": {
     "com.unity.textmeshpro": "3.0.0",
-    "jp.netsis.rubytmp": "1.2.0"
+    "jp.netsis.rubytmp": "https://github.com/jp-netsis/RubyTextMeshPro.git?path=/Assets/RubyTextMeshPro#v1.2.0"
   }
 }
