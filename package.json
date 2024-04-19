@@ -5,7 +5,6 @@
   "description": "Add Text Typer Component.",
   "unity": "2021.3",
   "dependencies": {
-    "com.unity.textmeshpro": "3.0.0",
-    "jp.netsis.rubytmp": "1.2.0"
+    "com.unity.textmeshpro": "3.0.0"
   }
 }
