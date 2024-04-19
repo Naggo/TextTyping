@@ -110,6 +110,7 @@ namespace TextTyping {
             return builder.ToString();
         }
 
+#if TEXTTYPING_RUBYTMP_SUPPORT
         public static string SetupForRuby(string text, List<CommandData> commands) {
             // - ルビ表示用のタグ処理を行う。
             // コマンド用のテキスト解析では、ルビタグの消去処理をあらかじめこちらで行い、
@@ -160,5 +161,7 @@ namespace TextTyping {
             }
             return builder.ToString();
         }
+#endif
+
     }
 }

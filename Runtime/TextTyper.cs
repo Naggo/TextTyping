@@ -193,12 +193,18 @@ namespace TextTyping {
             // コマンドが処理された中間テキストを取得する。
             string text = Parser.ParseCommand(sourceText, commands);
             // tmp の種類によって分岐。
-            if (tmp is RubyTextMeshPro) {
-                SetupRuby(text);
-            } else if (tmp is TextMeshProUGUI) {
-                SetupRubyUI(text);
-            } else {
-                SetupTMP(text);
+            switch (tmp) {
+            #if TEXTTYPING_RUBYTMP_SUPPORT
+                case RubyTextMeshPro:
+                    SetupRuby(text);
+                    break;
+                case RubyTextMeshProUGUI:
+                    SetupRubyUI(text);
+                    break;
+            #endif
+                default:
+                    SetupTMP(text);
+                    break;
             }
 
             isSetupped = true;
@@ -215,6 +221,7 @@ namespace TextTyping {
             skipCount = 0;
         }
 
+#if TEXTTYPING_RUBYTMP_SUPPORT
         void SetupRuby(string text) {
             // ルビ付きｔｍｐの設定
             RubyTextMeshPro ruby = tmp as RubyTextMeshPro;
@@ -223,7 +230,7 @@ namespace TextTyping {
             string rubyReplacedText = Parser.SetupForRuby(text, commands);
 
             // uneditedText 内で ForceMeshUpdate が呼ばれる。
-            tmp.text = rubyReplacedText;
+            // tmp.text = rubyReplacedText;
             ruby.uneditedText = rubyReplacedText;
 
             // 1. inactive 状態での強制, 2. テキスト解析の強制
@@ -237,13 +244,14 @@ namespace TextTyping {
         void SetupRubyUI(string text) {
             RubyTextMeshProUGUI ruby = tmp as RubyTextMeshProUGUI;
             string rubyReplacedText = Parser.SetupForRuby(text, commands);
-            tmp.text = rubyReplacedText;
+            // tmp.text = rubyReplacedText;
             ruby.uneditedText = rubyReplacedText;
             // tmp.ForceMeshUpdate(true, true);
             parsedText = tmp.GetParsedText();
 
             ruby.uneditedText = text.Replace(Parser.cmdFlag.ToString(), string.Empty);
         }
+#endif
 
         void SetupTMP(string text) {
             // 通常のｔｍｐの設定
