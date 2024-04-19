@@ -18,4 +18,7 @@ TextMeshPro等のコンポーネントを持ったオブジェクトに`TextType
 # 対応パッケージ
 
 * [RubyTextMeshPro](https://github.com/jp-netsis/RubyTextMeshPro)
+RubyTextMeshProにTextTyperが対応しています。
+  
 * [UniTask](https://github.com/Cysharp/UniTask)
+`TextTyper.PlayAsync()`が追加されます。
