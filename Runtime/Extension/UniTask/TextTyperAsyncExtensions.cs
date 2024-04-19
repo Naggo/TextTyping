@@ -1,3 +1,5 @@
+#if TEXTTYPING_UNITASK_SUPPORT
+
 using System.Collections;
 using System.Collections.Generic;
 using System.Threading;
@@ -18,3 +20,5 @@ namespace TextTyping {
         }
     }
 }
+
+#endif
