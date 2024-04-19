@@ -1,0 +1,20 @@
+{
+    "name": "Naggo.TextTyping.Editor",
+    "rootNamespace": "TextTyping.Editor",
+    "references": [
+        "Unity.TextMeshPro",
+        "RubyTextMeshPro",
+        "Naggo.TextTyping"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": false,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

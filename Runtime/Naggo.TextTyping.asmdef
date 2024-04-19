@@ -1,0 +1,17 @@
+{
+    "name": "Naggo.TextTyping",
+    "rootNamespace": "TextTyping",
+    "references": [
+        "Unity.TextMeshPro",
+        "RubyTextMeshPro"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
