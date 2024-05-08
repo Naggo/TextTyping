@@ -18,14 +18,6 @@ namespace TextTyping {
     public class TextTyper : MonoBehaviour {
 
 #if UNITY_EDITOR
-        void OnValidate() {
-            // 実行時非表示にする
-            if (Application.isPlaying && !isSetupped) {
-                Initialize();
-                Setup();
-            }
-        }
-
         // [ContextMenu("GetLog")]
         void Logging() {
             Debug.Log(tmp.text + " : " + tmp.GetParsedText());
@@ -67,14 +59,14 @@ namespace TextTyping {
         List<CommandData> commands = new();
         Action<TextTyper> commandExitActions;
 
-        bool isSetupped;
-        bool isUpdating;
+        public bool isSetupped { get; private set; }
+        public bool isUpdating { get; private set; }
         float deltaTime;
 
         public int currentCharIndex => cursorIndex - 1;
         public int nextCharIndex => cursorIndex;
         public TMP_Text textComponent => tmp;
-        public bool isCompleted => parsedTextIndex >= parsedText.Length;
+        public bool isCompleted =>  (parsedText is null) ? false : parsedTextIndex >= parsedText.Length;
 
         // コマンド関連
         public CommandInterface cmdi;
@@ -151,7 +143,29 @@ namespace TextTyping {
             isSetupped = false;
         }
 
-        public void AddTime(float time) {
+        public void SkipText(bool ignoreStopping = false) {
+            SkipText(sourceText.Length, ignoreStopping);
+        }
+
+        public void SkipText(int length, bool ignoreStopping = false) {
+            // 文字を指定数進める
+            if (!(ignoreStopping || isUpdating)) {
+                return;
+            }
+
+            if (!isSetupped) {
+                Setup();
+            }
+
+            for (int i = 0; i < length; i++) {
+                if (isCompleted || !(ignoreStopping || isUpdating)) {
+                    break;
+                }
+                ShowNextCharacter();
+            }
+        }
+
+        internal void AddTime(float time) {
             // 手動で時間経過させる
             if (!isSetupped) {
                 Setup();
@@ -159,24 +173,6 @@ namespace TextTyping {
 
             if (!isCompleted) {
                 UpdateTime(time);
-            }
-        }
-
-        public void SkipCharacters() {
-            SkipCharacters(sourceText.Length);
-        }
-
-        public void SkipCharacters(int count) {
-            // 文字を指定数進める
-            if (!isSetupped) {
-                Setup();
-            }
-
-            for (int i = 0; i < count; i++) {
-                if (isCompleted) {
-                    break;
-                }
-                ShowNextCharacter();
             }
         }
 
