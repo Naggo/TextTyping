@@ -6,6 +6,8 @@ using UnityEngine;
 
 namespace TextTyping {
     public abstract class Command {
+        public static bool isPreview { get; internal set; } = false;
+
         public Command() {}
 
         public virtual void OnCursorEnter(TextTyper typer, string arg) {}
