@@ -14,16 +14,11 @@ namespace TextTyping {
         }
 
         public static async UniTask PlayAsync(this TextTyper typer, bool ignoreStopping, CancellationToken token = default) {
-            var typerToken = typer.GetCancellationTokenOnDestroy();
-            using (var linkedCts = CancellationTokenSource.CreateLinkedTokenSource(token, typerToken)) {
-                var linkedToken = linkedCts.Token;
-                typer.StartTyping();
-                linkedToken.Register(() => typer.StopTyping());
-                if (ignoreStopping) {
-                    await UniTask.WaitUntil(() => typer.isCompleted, PlayerLoopTiming.Update, linkedToken);
-                } else {
-                    await UniTask.WaitUntil(() => typer.isCompleted || !typer.isUpdating, PlayerLoopTiming.Update, linkedToken);
-                }
+            typer.StartTyping();
+            if (ignoreStopping) {
+                await UniTask.WaitUntil(() => (typer == null) || typer.isCompleted, PlayerLoopTiming.Update, token);
+            } else {
+                await UniTask.WaitUntil(() => (typer == null) || typer.isCompleted || !typer.isUpdating, PlayerLoopTiming.Update, token);
             }
         }
     }
