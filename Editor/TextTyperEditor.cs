@@ -132,6 +132,7 @@ namespace TextTyping.Editor {
         void Update() {
             // プレビュー表示
             if (previewFlag) {
+                Command.isPreview = true;
                 typer.AddTime((float)(EditorApplication.timeSinceStartup - lastTime));
                 typer.textComponent.ForceMeshUpdate();
                 if (typer.isCompleted) {
@@ -139,6 +140,7 @@ namespace TextTyping.Editor {
                     Repaint();
                 }
                 repaintFlag = true;
+                Command.isPreview = false;
             }
 
             // 画面の再描画
