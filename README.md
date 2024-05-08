@@ -16,7 +16,7 @@ https://github.com/Naggo/TextTyping.git
 ```
 または
 ```
-https://github.com/Naggo/TextTyping.git#v1.0.0
+https://github.com/Naggo/TextTyping.git#v2.0.0
 ```
 
 
