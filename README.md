@@ -11,6 +11,7 @@ TextMeshProの文章を一文字ずつ表示するためのパッケージです
 
 # 導入方法
 
+UnityのPackage Managerから`Add package from git URL...`を選択し、
 ```
 https://github.com/Naggo/TextTyping.git
 ```
@@ -18,6 +19,7 @@ https://github.com/Naggo/TextTyping.git
 ```
 https://github.com/Naggo/TextTyping.git#v2.0.0
 ```
+を入力してください。
 
 
 # 使用方法
