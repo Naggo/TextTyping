@@ -17,7 +17,7 @@ https://github.com/Naggo/TextTyping.git
 ```
 または
 ```
-https://github.com/Naggo/TextTyping.git#v2.0.0
+https://github.com/Naggo/TextTyping.git#v2.0.1
 ```
 を入力してください。
 
@@ -36,7 +36,8 @@ TextMeshProの代わりにRubyTextMeshProが使用できます。
   
 * [UniTask](https://github.com/Cysharp/UniTask)
 
-`TextTyper.PlayAsync()`が追加されます。
+`TextTyper.PlayAsync(CancellationToken token = default)`および
+`TextTyper.PlayAsync(bool ignoreStopping, CancellationToken token = default)`が追加されます。
 
 
 # 変更点（v2.0.0）
@@ -60,7 +61,7 @@ ignoreStoppingがtrueの場合、従来通りの動作になります。
 
 * TextTyper.PlayAsync()の変更
 
-TextTyper.PlayAsync(this TextTyper typer, bool ignoreStopping, CancellationToken token = default)を追加しました。
+TextTyper.PlayAsync(bool ignoreStopping, CancellationToken token = default)を追加しました。
 SkipTextと同様、待機中にTextTyper.StopTyping()が呼ばれた場合には処理を完了するようになりました。
 ignoreStoppingがtrueの場合、従来通りisCompletedがtrueになるまで待機し続けます。
 
