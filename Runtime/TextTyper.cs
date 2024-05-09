@@ -66,7 +66,7 @@ namespace TextTyping {
         public int currentCharIndex => cursorIndex - 1;
         public int nextCharIndex => cursorIndex;
         public TMP_Text textComponent => tmp;
-        public bool isCompleted =>  (parsedText is null) ? false : parsedTextIndex >= parsedText.Length;
+        public bool isCompleted => (parsedText is null) ? false : parsedTextIndex >= parsedText.Length;
 
         // コマンド関連
         public CommandInterface cmdi;
@@ -84,6 +84,7 @@ namespace TextTyping {
             }
 
             public void ChangeSpeed(float speed) {
+                // 速度を変更する。
                 source.commandSpeed = speed;
             }
 
@@ -144,6 +145,7 @@ namespace TextTyping {
         }
 
         public void SkipText(bool ignoreStopping = false) {
+            // 止まるまで文章をスキップする。
             SkipText(sourceText.Length, ignoreStopping);
         }
 
